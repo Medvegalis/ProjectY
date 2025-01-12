@@ -112,6 +112,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "SwapCameras",
+                    "type": "Button",
+                    "id": "00f70258-09bd-42d5-acfe-cb12e82de5bd",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -261,7 +270,7 @@
                 {
                     "name": "",
                     "id": "6a2753e3-fe89-4e7a-bda0-29a02d2ec55e",
-                    "path": "<Keyboard>/q",
+                    "path": "<Keyboard>/g",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -288,6 +297,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "PauseGame",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "84bf4c85-291f-45ed-a004-a6f6f1f83eee",
+                    "path": "<Keyboard>/f1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwapCameras",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

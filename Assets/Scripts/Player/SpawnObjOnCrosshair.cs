@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
@@ -76,8 +77,10 @@ public class SpawnObjOnCrosshair : MonoBehaviour
             CreatePreviewObj(prefab);
         }
         canRotate = true;
+        ignoreGrid = true;
 
-        
+        SetCurentSelectedObjId(0);
+
     }
 
     public void SetCurentSelectedObjId(int index)
@@ -147,16 +150,21 @@ public class SpawnObjOnCrosshair : MonoBehaviour
         if (!inEditMode || prefab == null)
             return;
 
-        if (playerInputs.ignoreGrid.WasPressedThisFrame())
+        if (playerInputs.ignoreGrid.WasPerformedThisFrame())
         {
-            ignoreGrid = true;
-            RotateOffset();
+            if (ignoreGrid)
+            {
+                ignoreGrid = false;
+                RotateOffset();
+            }
+            else
+            {
+                ignoreGrid = true;
+                RotateOffset(); 
+            }
+            
         }
-        if (playerInputs.ignoreGrid.WasReleasedThisFrame())
-        {
-            ignoreGrid = false;
-            RotateOffset();
-        }
+       
 
         if (playerInputs.editColor.WasPressedThisFrame())
         {
@@ -282,7 +290,18 @@ public class SpawnObjOnCrosshair : MonoBehaviour
 
     private void MatchRotation(GameObject objToMatchTo)
     {
-        previewRoation = (int)objToMatchTo.transform.rotation.eulerAngles.y;
+        
+        if(movedObj.name.Contains("sofa"))
+        {
+            Debug.Log("GotSofa");
+            previewRoation = (int)objToMatchTo.transform.rotation.eulerAngles.y + 90;
+
+        }
+        else
+        {
+            previewRoation = (int)objToMatchTo.transform.rotation.eulerAngles.y;
+        }
+
         RotateOffset();
     }
 
@@ -355,7 +374,7 @@ public class SpawnObjOnCrosshair : MonoBehaviour
         if (StateManager.instance.currentEditState == StateManager.EditState.MovingObj)
         {
             Destroy(movedObj);
-
+            AudioManager.instance.Play("Remove");
             PlacedFurnitureTracker.instance.RemoveFurnitureFromList(movedObj);
 
             if (lastFurnitureFromInventory != null)
@@ -392,7 +411,7 @@ public class SpawnObjOnCrosshair : MonoBehaviour
             prefab = Instantiate(prefab, previewObject.transform.position, previewObject.transform.rotation);
             Debug.Log($"Adding to placedList: {prefab.name} catId: {currentFurnitureSetIndex} id: {currentFurnitureIndex} to list");
             PlacedFurnitureTracker.instance.UpdateFurnitureToList(prefab, currentFurnitureSetIndex, currentFurnitureIndex);
-
+            AudioManager.instance.Play("Place");
             if (movedObj != null)
             {
                 Destroy(movedObj);

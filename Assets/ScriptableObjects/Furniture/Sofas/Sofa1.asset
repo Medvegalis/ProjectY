@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Sofa1
   m_EditorClassIdentifier: 
   objName: Sofa1
-  description: 
+  id: 0
+  categoryId: 2
   sizeOnGrid: {x: 1, y: 2}
   furnitureGameObj: {fileID: 4731341804220691269, guid: 93238aa31d7d74a44a56d0782e8acb03, type: 3}
   previewImage: {fileID: 2800000, guid: 16bce041645845940880f904fc373ea5, type: 3}

@@ -16,6 +16,10 @@ public class TooltipManager : MonoBehaviour
     {
         StateManager.instance.onGameStateChange += HandleGameStateChange;
         StateManager.instance.onEditStateChange += HandleEditStateChange;
+
+        keybindTooltipText.text = $"{playerInputControler.enterEditMode.bindings[0].ToDisplayString()} - Enter/exit edit mode\n" +
+                                            $"WASD - Move\n" +
+                                            $"{playerInputControler.openInventory.bindings[0].ToDisplayString()} - Invetory\n";
     }
 
     void Update()
@@ -29,14 +33,16 @@ public class TooltipManager : MonoBehaviour
         {
             case StateManager.GameStates.ViewMode:
                 keybindTooltipText.text = $"{playerInputControler.enterEditMode.bindings[0].ToDisplayString()} - Enter/exit edit mode\n" +
-                                           $"{playerInputControler.openInventory.bindings[0].ToDisplayString()} - Invetory\n";
+                                            $"WASD - Move\n" +
+                                            $"{playerInputControler.openInventory.bindings[0].ToDisplayString()} - Invetory\n";
                 objectStatusText.text = $" ";
                 break;
             case StateManager.GameStates.EditMode:
                 keybindTooltipText.text = $"{playerInputControler.rotate.bindings[0].ToDisplayString()} - rotate\n" +
                                             $"{playerInputControler.place.bindings[0].ToDisplayString()} - place\n" +
                                             $"{playerInputControler.editObj.bindings[0].ToDisplayString()} - editObj\n" +
-                                            $"{playerInputControler.ignoreGrid.bindings[0].ToDisplayString()} - freeMode";
+                                            $"{playerInputControler.ignoreGrid.bindings[0].ToDisplayString()} - toggle grid\n" +
+                                            $"{playerInputControler.openInventory.bindings[0].ToDisplayString()} - Invetory\n";
                 objectStatusText.text = $"Placing new object";
                 break;
         }
@@ -52,7 +58,7 @@ public class TooltipManager : MonoBehaviour
                 keybindTooltipText.text = $"{playerInputControler.rotate.bindings[0].ToDisplayString()} - rotate\n" +
                                             $"{playerInputControler.place.bindings[0].ToDisplayString()} - place\n" +
                                             $"{playerInputControler.editObj.bindings[0].ToDisplayString()} - editObj\n" +
-                                            $"{playerInputControler.ignoreGrid.bindings[0].ToDisplayString()} - freeMode";
+                                            $"{playerInputControler.ignoreGrid.bindings[0].ToDisplayString()} - toggle grid";
                 break;
             case StateManager.EditState.MovingObj:
                 objectStatusText.text = $"Object selected";

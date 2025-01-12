@@ -5,8 +5,8 @@ using UnityEngine.InputSystem;
 public class PlayerInputControler : MonoBehaviour
 {
     PlayerInput playerInput;
-    
 
+    public InputAction changeCamera { get; private set; }
     public InputAction pauseGame { get; private set; }
     public InputAction editColor { get; private set; }
     public InputAction ignoreGrid { get; private set; }
@@ -25,6 +25,8 @@ public class PlayerInputControler : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
 
         pauseGame = playerInput.actions["PauseGame"];
+
+        changeCamera = playerInput.actions["SwapCameras"];
 
         //Movements
         look = playerInput.actions["Look"];
@@ -59,6 +61,8 @@ public class PlayerInputControler : MonoBehaviour
         deleteObj.Disable();
         editObj.Disable();
 
+        changeCamera.Disable();
+
         // Disable mode switching
         enterEditMode.Disable();
         openInventory.Disable();
@@ -75,6 +79,8 @@ public class PlayerInputControler : MonoBehaviour
         jump.Enable();
         place.Enable();
         rotate.Enable();
+
+        changeCamera.Enable();
 
         // Enable editing actions
         editColor.Enable();
@@ -99,6 +105,8 @@ public class PlayerInputControler : MonoBehaviour
         place.Disable();
         rotate.Disable();
 
+        changeCamera.Disable();
+
         // Disable editing actions
         editColor.Disable();
         ignoreGrid.Disable();
@@ -120,6 +128,8 @@ public class PlayerInputControler : MonoBehaviour
         jump.Disable();
         place.Disable();
         rotate.Disable();
+
+        changeCamera.Disable();
 
         // Disable editing actions
         ignoreGrid.Disable();
