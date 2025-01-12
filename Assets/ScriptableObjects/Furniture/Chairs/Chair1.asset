@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3971ffb9b5e9e140a149e2546c89115, type: 3}
+  m_Name: Chair1
+  m_EditorClassIdentifier: 
+  objName: Kitchen Chair 1
+  description: 
+  sizeOnGrid: {x: 1, y: 1}
+  furnitureGameObj: {fileID: 850679582759963963, guid: 17af0c08d0b36bb4785048d858883855, type: 3}
+  previewImage: {fileID: 2800000, guid: 84d7e3aa54f616a46a3024f7f709203e, type: 3}

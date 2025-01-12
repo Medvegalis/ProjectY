@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3971ffb9b5e9e140a149e2546c89115, type: 3}
+  m_Name: Sofa2
+  m_EditorClassIdentifier: 
+  objName: Sofa2
+  description: 
+  sizeOnGrid: {x: 1, y: 3}
+  furnitureGameObj: {fileID: 1754880923649863375, guid: d19b799677c6c2d4a88f0bad5511d22d, type: 3}
+  previewImage: {fileID: 2800000, guid: 733d859d01a8e1e4cb1c4caeaddc86b4, type: 3}
